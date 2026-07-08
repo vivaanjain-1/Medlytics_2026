@@ -128,7 +128,7 @@
         "import numpy as np\n",
         "import matplotlib.pyplot as plt"
       ],
-      "execution_count": 41,
+      "execution_count": null,
       "outputs": []
     },
     {
@@ -159,7 +159,7 @@
         "data = data.dropna(axis=0).reset_index(drop=True)\n",
         "data.head()"
       ],
-      "execution_count": 42,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -393,7 +393,7 @@
         "X = ['preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age']\n",
         "y = 'class'"
       ],
-      "execution_count": 43,
+      "execution_count": null,
       "outputs": []
     },
     {
@@ -410,7 +410,7 @@
         "# Further split X and y of training into training and validation sets\n",
         "X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2, random_state=0)"
       ],
-      "execution_count": 44,
+      "execution_count": null,
       "outputs": []
     },
     {
@@ -449,7 +449,7 @@
         "model = DecisionTreeClassifier(max_depth=4,random_state=0)\n",
         "model.fit(X_train, y_train)\n"
       ],
-      "execution_count": 45,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -909,7 +909,7 @@
         "y_train_predict = model.predict(X_train)\n",
         "y_val_predict = model.predict(X_val)"
       ],
-      "execution_count": 46,
+      "execution_count": null,
       "outputs": []
     },
     {
@@ -938,7 +938,7 @@
         "# Calculate model validation accuracy\n",
         "print('Validation Accuracy: {:01.3f}'.format(metrics.accuracy_score(y_val, y_val_predict)))"
       ],
-      "execution_count": 47,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -984,7 +984,7 @@
         "# Examine the class distribution of the validation set (using a Pandas Series method)\n",
         "y_val.value_counts(normalize=True)"
       ],
-      "execution_count": 48,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -1105,7 +1105,7 @@
         "# Or you can use pandas\n",
         "pd.crosstab(y_val, y_val_predict, rownames=['True'], colnames=['Predicted'], margins=True)"
       ],
-      "execution_count": 49,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -1290,7 +1290,7 @@
         "# Or you can use pandas—it's a little nicer to look at\n",
         "pd.crosstab(y_val, y_val_predict, rownames=['True'], colnames=['Predicted'], margins=True)"
       ],
-      "execution_count": 50,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -1484,7 +1484,7 @@
         "plot_cmatrix(cm,labels)\n",
         "plot_cmatrix(cm_norm,labels,title='Normalized Confusion Matrix')"
       ],
-      "execution_count": 51,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -1554,7 +1554,7 @@
         "cm = metrics.confusion_matrix(y2, y2pred, labels=animal_labels)\n",
         "plot_cmatrix(cm, animal_labels)"
       ],
-      "execution_count": 52,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -1640,7 +1640,7 @@
         "print('Recall:    {:01.3f}'.format(metrics.accuracy_score(y_val,y_val_predict)))\n",
         "print('F1 score:  {:01.3f}'.format(metrics.f1_score(y_val,y_val_predict)))"
       ],
-      "execution_count": 53,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -1689,7 +1689,7 @@
         "print('Probabilities:\\n',y_val_prob[0])\n",
         "print('\\nTrue Value:\\n',y_val.values[0])"
       ],
-      "execution_count": 54,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -1757,7 +1757,7 @@
         "# Calculate the area under the ROC curve\n",
         "roc_auc = metrics.auc(fpr, tpr)"
       ],
-      "execution_count": 55,
+      "execution_count": null,
       "outputs": []
     },
     {
@@ -1785,7 +1785,7 @@
         "plt.legend(loc=\"lower right\")\n",
         "plt.show()"
       ],
-      "execution_count": 56,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "display_data",
@@ -1822,11 +1822,11 @@
         "\n",
         "# 1. K-fold cross validation\n",
         "kf = KFold(n_splits=5, shuffle=True, random_state=0)\n",
-        "scores = cross_val_score(model, data[X], data[y], cv=kf)\n",
+        "scores = cross_val_score(model, X_train, y_train, cv=kf)\n",
         "print(\"K-Fold Accuracy scores:\", scores)\n",
         "print(\"Mean accuracy:\", scores.mean())\n",
         "\n",
-        "# 2. Choose a good threshold (balance TPR and FPR)\n",
+        "# 2. balance TPR and FPR\n",
         "y_val_prob = model.predict_proba(X_val)[:,1]\n",
         "fpr, tpr, thresholds = metrics.roc_curve(y_val, y_val_prob)\n",
         "good_idx = np.argmax(tpr - fpr)\n",
@@ -1846,16 +1846,16 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "VWW2Ag3nNA6j",
-        "outputId": "637c80ee-b98f-46e6-e5b4-e360b43b202d"
+        "outputId": "a274a439-8708-453f-9754-47a9ccfb1470"
       },
-      "execution_count": 58,
+      "execution_count": 59,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "K-Fold Accuracy scores: [0.74683544 0.73417722 0.66666667 0.80769231 0.82051282]\n",
-            "Mean accuracy: 0.7551768906199285\n",
+            "K-Fold Accuracy scores: [0.74 0.88 0.82 0.64 0.76]\n",
+            "Mean accuracy: 0.768\n",
             "Good threshold: 0.125\n",
             "Test Accuracy: 0.7721518987341772\n",
             "Test Confusion Matrix:\n",
