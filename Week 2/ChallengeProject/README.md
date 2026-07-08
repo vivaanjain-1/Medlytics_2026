@@ -15,6 +15,6 @@ Sleep data challenge from Massachusetts General Hospital’s (MGH), Computationa
 - Contains the ground truth labels for the test data. This is used only to evaluate the results of a model after it has been submitted by students. DO NOT MAKE THIS FILE PUBLIC.
 
 ## Student Presentations
-- Conatins presentations students gave on their challenge solutions.
+- Contains challenge project materials.
 
 Created by Brian Xia

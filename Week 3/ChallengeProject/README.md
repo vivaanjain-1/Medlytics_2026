@@ -21,6 +21,6 @@ Jpegs and labels were extracted from a tfrecords dataset curated by Eric Scuccim
 - Contains the ground truth labels for the test data in the multiclass classification case. This is used only to evaluate the results of a model after it has been submitted by students. DO NOT MAKE THIS FILE PUBLIC.
 
 ## Student Presentations
-- Contains presentations students gave on their solutions to the challenge problem.
+- Contains challenge project materials.
 
 Created by: Thomas Possidente

@@ -9,7 +9,7 @@ Datasets used in this repo:
 Created by Brian Xia
 
 ## Notebooks
-- Contains lesson notebooks (and solutions) on the SIR model, Time Series Exercises 1 and 2, Signal Processing, Fourier Transformations, Signal Cleanup, ML on Signals, ANNs on Signal Data Using Keras, Introduction to CNNs, and 1D Convolutional Nets on Signal Data.
+- Contains lesson notebooks on the SIR model, Time Series Exercises 1 and 2, Signal Processing, Fourier Transformations, Signal Cleanup, ML on Signals, ANNs on Signal Data Using Keras, Introduction to CNNs, and 1D Convolutional Nets on Signal Data.
 
 ## Old Notebooks
 - Lesson notebooks that have since been revised or cut from the lesson plan. 
